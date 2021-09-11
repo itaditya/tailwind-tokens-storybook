@@ -5,5 +5,12 @@ export function createConfig(twConfig) {
 
   return {
     title: 'Tailwind Theme',
+    parameters: {
+      viewMode: 'story',
+      previewTabs: {
+        'storybook/docs/panel': { hidden: true },
+      },
+      docs: { disable: true },
+    },
   };
 }
