@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sizes } from '../components/Sizes';
+import { Spacer } from '../components/Spacer';
 import { getTwTheme } from '../twTheme';
 
 const Spacing = () => {
@@ -8,9 +9,12 @@ const Spacing = () => {
 
   return (
     <section>
-      <h3>Width</h3>
+      <h1>Spacing</h1>
       <p>All Widths</p>
-      <Sizes title="Width" sizes={tokens} property="w" />
+      <Spacer direction="y" gap={50}>
+        <Sizes title="Width" sizes={tokens} property="w" />
+        <Sizes title="Width" sizes={tokens} property="w" />
+      </Spacer>
     </section>
   );
 };
