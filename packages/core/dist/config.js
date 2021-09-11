@@ -5,19 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createConfig = createConfig;
 
-var _resolveConfig = _interopRequireDefault(require("tailwindcss/resolveConfig"));
-
-var _ = require("./");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _twTheme = require("./twTheme");
 
 function createConfig(twConfig) {
-  var twTheme = (0, _resolveConfig["default"])(twConfig).theme;
+  (0, _twTheme.setTwTheme)(twConfig);
   return {
-    title: 'Tokens',
-    parameters: {
-      twTheme: twTheme
-    },
-    decorators: [_.tailwindDecorator]
+    title: 'Tailwind Theme'
   };
 }

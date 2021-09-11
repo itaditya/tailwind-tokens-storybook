@@ -1,14 +1,9 @@
-import resolveConfig from 'tailwindcss/resolveConfig';
-import { tailwindDecorator } from './';
+import { setTwTheme } from './twTheme';
 
 export function createConfig(twConfig) {
-  const twTheme = resolveConfig(twConfig).theme;
+  setTwTheme(twConfig);
 
   return {
-    title: 'Tokens',
-    parameters: {
-      twTheme,
-    },
-    decorators: [tailwindDecorator],
+    title: 'Tailwind Theme',
   };
 }
