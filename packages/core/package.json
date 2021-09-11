@@ -5,6 +5,7 @@
   "author": "Aditya Agarwal",
   "license": "MIT",
   "scripts": {
+    "dev": "yarn build --watch",
     "build": "babel ./src --out-dir ./dist"
   },
   "devDependencies": {
