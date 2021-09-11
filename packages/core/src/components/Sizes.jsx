@@ -6,13 +6,13 @@ const Heading = styled.h2({
   fontSize: '2rem',
 });
 
-const WidthContainer = styled.div({
+const SizeContainer = styled.div({
   display: 'flex',
   backgroundColor: '#edf2f7',
   height: '30px',
 });
 
-const WidthItem = styled.div(
+const SizeItem = styled.div(
   {
     display: 'inline-flex',
     alignItems: 'center',
@@ -37,11 +37,11 @@ export function Sizes({ title, property, prefix = '', sizes, css, children }) {
 
     return (
       <Spacer key={name} direction="y" gap={3}>
-        <WidthContainer>
-          <WidthItem css={css} className={customClass}>
+        <SizeContainer>
+          <SizeItem css={css} className={customClass}>
             <InnerContent>{children}</InnerContent>
-          </WidthItem>
-        </WidthContainer>
+          </SizeItem>
+        </SizeContainer>
         <Spacer gap={10} css={{ color: '#718096', fontSize: '0.875rem' }}>
           <span>Class: {customClass}</span>
           <span>Value: {size}</span>
