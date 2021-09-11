@@ -5,15 +5,20 @@ import { getTwTheme } from '../twTheme';
 
 const Spacing = () => {
   const theme = getTwTheme();
-  const tokens = theme.width;
 
   return (
     <section>
       <h1>Spacing</h1>
-      <p>All Widths</p>
+      <p>Spacing like width, padding, margin</p>
       <Spacer direction="y" gap={50}>
-        <Sizes title="Width" sizes={tokens} property="w" />
-        <Sizes title="Width" sizes={tokens} property="w" />
+        <Sizes title="Padding" sizes={theme.padding} property="pl" />
+        <Sizes
+          title="Margin"
+          sizes={theme.margin}
+          property="ml"
+          css={{ padding: '0 5px' }}
+          children="Item"
+        />
       </Spacer>
     </section>
   );

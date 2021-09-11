@@ -4,8 +4,13 @@ export const Spacer = styled.div(
   {
     display: 'flex',
   },
-  ({ direction = 'x', gap = 0 }) => ({
-    flexDirection: direction === 'y' ? 'column' : 'row',
-    gap: `${gap}px`,
-  }),
+  (props) => {
+    const { direction = 'x', gap = 0, css = {} } = props;
+
+    return {
+      ...css,
+      flexDirection: direction === 'y' ? 'column' : 'row',
+      gap: `${gap}px`,
+    };
+  },
 );

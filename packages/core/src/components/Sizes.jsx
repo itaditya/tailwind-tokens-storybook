@@ -1,46 +1,61 @@
 import React from 'react';
 import { styled } from '@storybook/theming';
+import { Spacer } from './Spacer';
 
-const Heading = styled.h3`
-  background-color: hotpink;
-`;
+const Heading = styled.h2({
+  fontSize: '2rem',
+});
 
-function TestComp(props) {
-  console.log(`props`, props); // aditodo remove this
+const WidthContainer = styled.div({
+  display: 'flex',
+  backgroundColor: '#edf2f7',
+  height: '30px',
+});
 
-  return <div>Yahah, {props.children}</div>
-}
+const WidthItem = styled.div(
+  {
+    display: 'inline-flex',
+    alignItems: 'center',
+    backgroundColor: '#cbd5e0',
+    fontSize: '0.75rem',
+    color: 'rgb(0 0 0 / 40%)',
+  },
+  ({ css }) => css,
+);
 
-const StyledTestComp = styled(TestComp)`
-  border-radius: 40px;
-`;
+const InnerContent = styled.span({
+  whiteSpace: 'nowrap',
+});
 
-export function Sizes({ title, property, prefix = '', sizes, className, children }) {
+export function Sizes({ title, property, prefix = '', sizes, css, children }) {
+  function renderSize([name, size]) {
+    const isNegative = name.startsWith('-');
+    if (isNegative) {
+      return null;
+    }
+    const customClass = `${prefix}${property}-${name}`;
+
+    return (
+      <Spacer key={name} direction="y" gap={3}>
+        <WidthContainer>
+          <WidthItem css={css} className={customClass}>
+            <InnerContent>{children}</InnerContent>
+          </WidthItem>
+        </WidthContainer>
+        <Spacer gap={10} css={{ color: '#718096', fontSize: '0.875rem' }}>
+          <span>Class: {customClass}</span>
+          <span>Value: {size}</span>
+        </Spacer>
+      </Spacer>
+    );
+  }
+
   return (
-    <section>
+    <Spacer as="section" direction="y" gap={10} css={{ maxWidth: '500px' }}>
       <Heading>{title}</Heading>
-      {Object.entries(sizes).map(([name, size]) => {
-        const isNegative = name.startsWith('-');
-        if (isNegative) {
-          return null;
-        }
-        const customClass = `${prefix}${property}-${name}`;
-
-        return (
-          <div key={name} className="">
-            <div className="">
-              <div className={customClass}>{children}</div>
-              <StyledTestComp x={2} className="aditya">
-                Hello
-              </StyledTestComp>
-            </div>
-            <p className="">
-              <span>Class: {customClass}</span>
-              <span className="">Value: {size}</span>
-            </p>
-          </div>
-        );
-      })}
-    </section>
+      <Spacer direction="y" gap={20}>
+        {Object.entries(sizes).map(renderSize)}
+      </Spacer>
+    </Spacer>
   );
 }
