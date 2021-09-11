@@ -1,0 +1,14 @@
+{
+  "name": "tailwind-tokens-story",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "Aditya Agarwal",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel ./src --out-dir ./dist"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.4",
+    "tailwindcss": "^2.2.15"
+  }
+}

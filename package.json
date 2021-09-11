@@ -1,0 +1,10 @@
+{
+  "name": "tailwind-tokens-storybook",
+  "version": "1.0.0",
+  "author": "Aditya Agarwal",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "./packages/*"
+  ]
+}
